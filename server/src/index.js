@@ -8,18 +8,12 @@ app.use(express.json())
 
 require('./models/Item')
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'hello There!!!!',
-  })
-})
-app.post('/items', async (req, res) => {
-  const item = req.body
-  const ItemModel = mongoose.model('Item')
-  const myItem = new ItemModel(item)
-  const createdItem = await myItem.save()
-  res.json(createdItem)
-})
+// app.get('/', (req, res) => {
+//   res.json({
+//     message: 'hello There!!!!',
+//   })
+// })
+app.post('/items', require('./routes/createItem'))
 
 mongoose.connect('mongodb://localhost/pantry-tracker').then(() => {
   app.listen(5050, () => {

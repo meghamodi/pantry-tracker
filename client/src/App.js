@@ -1,5 +1,5 @@
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 // fetching data from the backend using fetch() and using async await, useEffect is used when mounting the object
 function App() {
@@ -8,14 +8,14 @@ function App() {
     item: 'bread',
     quantity: 1,
   })
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('http://localhost:5050')
-      const data = await response.json()
-      setMessage(data.message)
-    }
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch('http://localhost:5050')
+  //     const data = await response.json()
+  //     setMessage(data.message)
+  //   }
+  //   fetchData()
+  // }, [])
 
   const createItemSubmit = e => {
     e.preventDefault()
